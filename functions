@@ -1,0 +1,12 @@
+#!/bin/bash
+
+function resolve_host() {
+    local targetdomain=$1
+    local resolver=$2
+
+    if [ -n $resolver ]; then
+        dig +short $targetdomain | tail -n 1
+    else
+        dig +short $targetdomain @$resolver | tail -n 1
+    fi
+}
