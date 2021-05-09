@@ -10,3 +10,15 @@ function resolve_host() {
         dig +short $targetdomain @$resolver | tail -n 1
     fi
 }
+
+# Follows url ($1) redirects and returns the "effective url", the resulting URL
+# after following all redirects.
+function get_effective_url() {
+	curl \
+		-I \
+		-s \
+		-o /dev/null \
+		-L \
+		-w '%{url_effective}' \
+		$1
+}

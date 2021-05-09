@@ -1,24 +1,22 @@
 #!/bin/bash
+source functions
 
-. functions
+resolver_ips=$1
+url=$2
 
-resolver=$1
-targetdomain=$2
+effective_url=$(get_effective_url $url)
 
-# Resolve IP of target using resolver
-resolved_ip=$(resolve_host $targetdomain $resolver)
-echo -e "resolved ip:\t" $resolved_ip
-echo -n "="
+echo 'Effective URL:' $effective_url
 
-# Count number of jumps to IP of target
-distance=$(mtr -nr $resolved_ip | grep -Po '^\s*\d+' | tail -n 1 | xargs)
-# echo -e "distance:\t" $distance
-echo -n "="
+# https://www.interserver.net/tips/kb/how-to-test-website-response-time-in-linux-terminal/
 
-# Ping resolved ip
-avg_ping=$(ping -c 5 $resolved_ip | grep -Po '(?<=\/)\d+(\.\d+)?(?=\/)' | head -n 1)
-# echo -e "average ping:\t" $avg_ping
-echo -ne "=\n"
+read -r remote_ip time_namelookup time_pretransfer \
+	<<<$(curl -w '%{remote_ip} %{time_namelookup} %{time_pretransfer}' \
+		--max-filesize 1 \
+		-I \
+		-s \
+		-o /dev/null \
+		--dns-servers $resolver_ips \
+		$effective_url)
 
-echo -e "resolv. Ip\tDist.\tPing"
-echo -e $resolved_ip "\t" $distance "\t" $avg_ping
+echo $remote_ip "	" $time_namelookup "	" $time_pretransfer
