@@ -4,10 +4,10 @@ function resolve_host() {
     local targetdomain=$1
     local resolver=$2
 
-    if [ -n $resolver ]; then
-        dig +short $targetdomain | tail -n 1
-    else
+    if [ -n "$resolver" ]; then
         dig +short $targetdomain @$resolver | tail -n 1
+    else
+        dig +short $targetdomain | tail -n 1
     fi
 }
 
@@ -26,4 +26,14 @@ function get_effective_url() {
 # Takes seconds and outputs it as ms with a single decimal place
 function s_to_ms() {
     echo "$(echo "scale=1;${1}*1000/1" | bc)ms"
+}
+
+# Escapes all forward slashes so that we can find/replace urls with sed command
+function sed_escape() {
+    echo ${1} | sed -e "s#/#\\\/#g"
+}
+
+# Takes a url ($1) and returns the hostname of that URL
+function get_host() {
+    echo "$1" | sed -e 's|^[^/]*//||' -e 's|/.*$||'
 }
