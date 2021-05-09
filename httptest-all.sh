@@ -12,5 +12,5 @@ while IFS= read -r RESOLVER_IP || [ -n "${RESOLVER_IP}" ]; do
 	read -r REMOTE_IP TIME_NAMELOOKUP TIME_PRETRANSFER \
 		<<<$(bash httptest.sh $RESOLVER_IP $URL)
 
-	echo $RESOLVER_IP "	" $REMOTE_IP "	" $TIME_NAMELOOKUP "	" $TIME_PRETRANSFER
+	echo "$RESOLVER_IP 	$REMOTE_IP	$(s_to_ms $TIME_NAMELOOKUP)	$(s_to_ms $TIME_PRETRANSFER)"
 done <<<$INPUT

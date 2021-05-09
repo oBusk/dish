@@ -14,11 +14,16 @@ function resolve_host() {
 # Follows url ($1) redirects and returns the "effective url", the resulting URL
 # after following all redirects.
 function get_effective_url() {
-	curl \
-		-I \
-		-s \
-		-o /dev/null \
-		-L \
-		-w '%{url_effective}' \
-		$1
+    curl \
+        -I \
+        -s \
+        -o /dev/null \
+        -L \
+        -w '%{url_effective}' \
+        $1
+}
+
+# Takes seconds and outputs it as ms with a single decimal place
+function s_to_ms() {
+    echo "$(echo "scale=1;${1}*1000/1" | bc)ms"
 }
