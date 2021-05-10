@@ -3,6 +3,7 @@ source functions/util.sh
 source functions/resolve-host.sh
 source functions/count-hops.sh
 source functions/ip-location.sh
+source functions/time-pretransfer.sh
 
 # THE PLAN:
 # Use each resolver to get what IP they point to
