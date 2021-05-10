@@ -102,6 +102,22 @@ function ip_location() {
 	curl -s ipinfo.io/$1 | jq -j '.city, ", ", .country'
 }
 
+function time_pretransfer_x {
+	local REMOTE_IP=$1
+	local HOST=$2
+	local PORT=$3
+	local URL=$4
+
+	local SUM=0
+	for i in {1..10}; do
+		local TIME_PRETRANSFER=$(time_pretransfer $REMOTE_IP $HOST $PORT $URL)
+
+		local SUM=$(echo "$SUM + $TIME_PRETRANSFER" | bc -l)
+	done
+
+	echo "$SUM / 10" | bc -l
+}
+
 function time_pretransfer() {
 	local REMOTE_IP=$1
 	local HOST=$2
