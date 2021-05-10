@@ -2,38 +2,9 @@
 
 source functions/cache.sh
 
-RESOLVE_HOST_CACHE="$CACHE_DIR/resolve-host.txt"
 COUNT_HOPS_CACHE="$CACHE_DIR/count-hops.txt"
 IP_LOCATION_CACHE="$CACHE_DIR/ip-location.txt"
 TIME_PRETRANSFER_CACHE="$CACHE_DIR/time-pretransfer.txt"
-
-function resolve_host_with_cache() {
-    local TARGET_DOMAIN=$1
-    local RESOLVER=$2
-
-    ensure_cache_file_exists $RESOLVE_HOST_CACHE
-
-    MATCHING_LINE=$(grep "^$TARGET_DOMAIN $RESOLVER" <$RESOLVE_HOST_CACHE)
-    if [[ -n "$MATCHING_LINE" ]]; then
-        read D R REMOTE_IP <<<$MATCHING_LINE
-    else
-        REMOTE_IP=$(resolve_host $TARGET_DOMAIN $RESOLVER)
-        echo -e "$TARGET_DOMAIN $RESOLVER $REMOTE_IP" >>$RESOLVE_HOST_CACHE
-    fi
-
-    echo $REMOTE_IP
-}
-
-function resolve_host() {
-    local TARGET_DOMAIN=$1
-    local RESOLVER=$2
-
-    if [ -n "$RESOLVER" ]; then
-        dig +short $TARGET_DOMAIN @$RESOLVER | tail -n 1
-    else
-        dig +short $targetdomain | tail -n 1
-    fi
-}
 
 # Follows url ($1) redirects and returns the "effective url", the resulting URL
 # after following all redirects.
