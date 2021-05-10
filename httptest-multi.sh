@@ -30,7 +30,7 @@ REMOTE_IPS=$(head -n -1 <<<"$REMOTE_IPS")
 while read -r REMOTE_IP REST || [ -n "$REMOTE_IP" ]; do
 	DISTANCE=$(count_hops_with_cache $REMOTE_IP)
 	LOCATION=$(ip_location_with_cache $REMOTE_IP)
-	TIME_PRETRANSFER=$(time_pretransfer_x $REMOTE_IP $EFFECTIVE_HOST $PORT $EFFECTIVE_URL)
+	TIME_PRETRANSFER=$(time_pretransfer_x_with_cache $REMOTE_IP $EFFECTIVE_HOST $PORT $EFFECTIVE_URL)
 
 	REMOTE_IPS=$(sed "/${REMOTE_IP}/ s/$/ ${LOCATION} ${DISTANCE} $(s_to_ms $TIME_PRETRANSFER)/" <<<$REMOTE_IPS)
 
