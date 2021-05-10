@@ -13,13 +13,13 @@ function resolve_host() {
 
 # Follows url ($1) redirects and returns the "effective url", the resulting URL
 # after following all redirects.
-function get_effective_url() {
+function get_effective_url_and_port() {
     curl \
         -I \
         -s \
         -o /dev/null \
         -L \
-        -w '%{url_effective}' \
+        -w '%{url_effective} ${remote_port}' \
         $1
 }
 
@@ -36,4 +36,12 @@ function sed_escape() {
 # Takes a url ($1) and returns the hostname of that URL
 function get_host() {
     echo "$1" | sed -e 's|^[^/]*//||' -e 's|/.*$||'
+}
+
+function count_hops() {
+    mtr -n -r -c 1 $1 | grep -Po '^\s*\d+' | tail -n 1 | xargs
+}
+
+function ip_location() {
+    curl -s ipinfo.io/$1 | jq -j '.city, ", ", .country'
 }
