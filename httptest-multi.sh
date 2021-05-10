@@ -11,7 +11,7 @@ read -d '' INPUT
 read EFFECTIVE_URL PORT <<<$(get_effective_url_and_port $URL)
 EFFECTIVE_HOST=$(get_host $EFFECTIVE_URL)
 
-while IFS= read -r RESOLVER_IP || [ -n "$RESOLVER_IP" ]; do
+while read -r RESOLVER_IP R || [ -n "$RESOLVER_IP" ]; do
 	REMOTE_IP=$(resolve_host_with_cache $EFFECTIVE_HOST $RESOLVER_IP)
 
 	if [[ "$REMOTE_IP" == "N/A" ]]; then
