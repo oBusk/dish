@@ -1,6 +1,7 @@
 #!/bin/bash
 source functions/util.sh
 source functions/resolve-host.sh
+source functions/count-hops.sh
 
 # THE PLAN:
 # Use each resolver to get what IP they point to
