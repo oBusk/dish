@@ -14,9 +14,13 @@ EFFECTIVE_HOST=$(get_host $EFFECTIVE_URL)
 while IFS= read -r RESOLVER_IP || [ -n "$RESOLVER_IP" ]; do
 	REMOTE_IP=$(resolve_host_with_cache $EFFECTIVE_HOST $RESOLVER_IP)
 
-	DISTANCE=$(count_hops_with_cache $REMOTE_IP)
-	LOCATION=$(ip_location_with_cache $REMOTE_IP)
-	TIME_PRETRANSFER=$(time_pretransfer_x_with_cache $REMOTE_IP $EFFECTIVE_HOST $PORT $EFFECTIVE_URL)
+	if [[ "$REMOTE_IP" == "N/A" ]]; then
+		echo "[$RESOLVER_IP]->N/A"
+	else
+		DISTANCE=$(count_hops_with_cache $REMOTE_IP)
+		LOCATION=$(ip_location_with_cache $REMOTE_IP)
+		TIME_PRETRANSFER=$(time_pretransfer_x_with_cache $REMOTE_IP $EFFECTIVE_HOST $PORT $EFFECTIVE_URL)
 
-	echo "[$RESOLVER_IP]->($REMOTE_IP) Location: $LOCATION, Distance: $DISTANCE, Pre-transfer: $(s_to_ms $TIME_PRETRANSFER)"
+		echo "[$RESOLVER_IP]->($REMOTE_IP) Location: $LOCATION, Distance: $DISTANCE, Pre-transfer: $(s_to_ms $TIME_PRETRANSFER)"
+	fi
 done <<<"$INPUT"

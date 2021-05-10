@@ -14,6 +14,9 @@ function resolve_host_with_cache() {
         read D R REMOTE_IP <<<$MATCHING_LINE
     else
         REMOTE_IP=$(resolve_host $TARGET_DOMAIN $RESOLVER)
+        if [[ -z "$REMOTE_IP" ]]; then
+            REMOTE_IP="N/A"
+        fi
         echo -e "$TARGET_DOMAIN $RESOLVER $REMOTE_IP" >>$RESOLVE_HOST_CACHE
     fi
 
