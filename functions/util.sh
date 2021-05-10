@@ -2,8 +2,8 @@
 
 source functions/cache.sh
 
-RESOLVE_HOST_CACHE="$CACHE_DIR/resolve_host.txt"
-COUNT_HOPS_CACHE="$CACHE_DIR/count_hops.txt"
+RESOLVE_HOST_CACHE="$CACHE_DIR/resolve-host.txt"
+COUNT_HOPS_CACHE="$CACHE_DIR/count-hops.txt"
 IP_LOCATION_CACHE="$CACHE_DIR/ip-location.txt"
 TIME_PRETRANSFER_CACHE="$CACHE_DIR/time-pretransfer.txt"
 
