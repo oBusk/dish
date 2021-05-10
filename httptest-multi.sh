@@ -1,5 +1,5 @@
 #!/bin/bash
-source functions
+source functions/util.sh
 
 # THE PLAN:
 # Use each resolver to get what IP they point to
