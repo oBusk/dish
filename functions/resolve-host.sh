@@ -1,5 +1,4 @@
 #!/bin/bash
-
 source functions/cache.sh
 
 RESOLVE_HOST_CACHE="$CACHE_DIR/resolve-host.txt"

@@ -1,3 +1,4 @@
+#!/bin/bash
 source functions/cache.sh
 
 COUNT_HOPS_CACHE="$CACHE_DIR/count-hops.txt"

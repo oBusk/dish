@@ -1,5 +1,4 @@
 #!/bin/bash
-
 source functions/cache.sh
 
 TIME_PRETRANSFER_CACHE="$CACHE_DIR/time-pretransfer.txt"
