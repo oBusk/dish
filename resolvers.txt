@@ -1,5 +1,33 @@
-1.1.1.1
-9.9.9.9
-8.8.8.8
-91.239.100.100
-8.26.56.26
+1.1.1.1         cloudflare
+116.202.176.26  LibreDNS
+130.244.126.100 LO
+146.255.56.98   Foundation for Applied Privacy
+151.252.139.24  Net at Once
+155.4.12.212    Bannhof (?)
+156.154.70.1    DNS Advantage (Neustar)
+193.17.47.1     CZ.NIC
+193.183.18.21   Atea
+195.178.160.1   Bannhof
+195.67.69.66    Mkdata
+198.251.90.91   NixNet
+208.67.222.222  OpenDNS-2
+213.115.226.2   GNS.se
+216.146.35.35   DynGuide
+217.115.40.123  bredband2
+23.253.163.53   Alternate DNS
+4.2.2.1         Level3 DNS
+45.90.28.55     NextDNS
+46.246.29.69    Glesys
+64.6.64.6       Ultra DNS / Neustar
+74.82.42.42     Hurricane
+8.26.56.26      Comodo Secure DNS
+8.8.8.8         Google
+81.26.228.3     Telenor
+84.200.69.80    DNS.WATCH
+87.96.144.179   a3 fiber
+9.9.9.11        Quad9 (ECS)
+9.9.9.9         Quad9
+91.239.100.100  UncensoredDNS
+94.140.14.14    AdGuard
+95.216.212.177  BlahDNS
+95.216.24.230   Snoopyta
