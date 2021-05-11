@@ -1,5 +1,6 @@
 #!/bin/bash
 source functions/util.sh
+source functions/get-effective-url.sh
 source functions/resolve-host.sh
 source functions/count-hops.sh
 source functions/ip-location.sh
@@ -8,15 +9,14 @@ source functions/time-pretransfer.sh
 URL=$1
 read -d '' INPUT
 
-read EFFECTIVE_URL PORT <<<$(get_effective_url_and_port $URL)
-EFFECTIVE_HOST=$(get_host $EFFECTIVE_URL)
-
 function append_result() {
 	RESULT="$RESULT
 $1"
 }
 
 while read -r RESOLVER_IP R || [ -n "$RESOLVER_IP" ]; do
+	read EFFECTIVE_HOST EFFECTIVE_URL PORT <<<$(get_effective_url_and_port_with_cache $URL)
+
 	REMOTE_IP=$(resolve_host_with_cache $EFFECTIVE_HOST $RESOLVER_IP)
 
 	if [[ "$REMOTE_IP" == "N/A" ]]; then
