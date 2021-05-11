@@ -9,7 +9,7 @@ function get_effective_url_and_port() {
         -s \
         -o /dev/null \
         -L \
-        -w '%{url_effective} ${remote_port}' \
+        -w '%{url_effective} %{remote_port}' \
         $1
 }
 
