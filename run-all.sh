@@ -2,4 +2,4 @@
 
 # Run all tests on resolves in resolvers.txt
 
-source cdn-test-multi.sh <resolvers.txt
+source url-test-multi.sh <resolvers.txt

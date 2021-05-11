@@ -11,7 +11,7 @@ $1"
 
 while read -r RESOLVER_IP R || [ -n "$RESOLVER_IP" ]; do
 	append_line "$(
-		source cdn-test.sh $RESOLVER_IP https://www.akamai.com/us/en/multimedia/images/logo/akamai-logo.png
+		source url-test.sh $RESOLVER_IP https://www.akamai.com/us/en/multimedia/images/logo/akamai-logo.png
 	)"
 done <<<"$INPUT"
 
