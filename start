@@ -1,3 +1,0 @@
-#!/bin/bash
-
-bash httptest-multi.sh https://assets.adobedtm.com/launch-EN919758db9a654a17bac7d184b99c4820.min.js < resolvers.txt
