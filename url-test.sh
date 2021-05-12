@@ -1,6 +1,6 @@
 #!/bin/bash
 source functions/util.sh
-source functions/get-effective-url.sh
+source functions/effective-url.sh
 source functions/resolve-host.sh
 source functions/count-hops.sh
 source functions/ip-location.sh
@@ -9,7 +9,7 @@ source functions/time-pretransfer.sh
 RESOLVER_IP=$1
 URL=$2
 
-read EFFECTIVE_HOST EFFECTIVE_URL PORT <<<$(get_effective_url_and_port_with_cache $URL)
+read EFFECTIVE_HOST EFFECTIVE_URL PORT <<<$(effective_url_and_port_with_cache $URL)
 
 REMOTE_IP=$(resolve_host_with_cache $EFFECTIVE_HOST $RESOLVER_IP)
 

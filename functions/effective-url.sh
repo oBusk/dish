@@ -3,7 +3,7 @@ source functions/cache.sh
 
 EFFECTIVE_URL_CACHE="$CACHE_DIR/effective-url.txt"
 
-function get_effective_url_and_port_with_cache {
+function effective_url_and_port_with_cache {
     local URL=$1
 
     ensure_cache_file_exists $EFFECTIVE_URL_CACHE
@@ -12,7 +12,7 @@ function get_effective_url_and_port_with_cache {
     if [[ -n "$MATCHING_LINE" ]]; then
         read U EFFECTIVE_HOST EFFECTIVE_URL PORT <<<$MATCHING_LINE
     else
-        read EFFECTIVE_HOST EFFECTIVE_URL PORT <<<$(get_effective_url_and_port $URL)
+        read EFFECTIVE_HOST EFFECTIVE_URL PORT <<<$(effective_url_and_port $URL)
 
         echo -e "$URL $EFFECTIVE_HOST $EFFECTIVE_URL $PORT" >>$EFFECTIVE_URL_CACHE
     fi
@@ -22,7 +22,7 @@ function get_effective_url_and_port_with_cache {
 
 # Follows url ($1) redirects and returns the "effective url", the resulting URL
 # after following all redirects.
-function get_effective_url_and_port() {
+function effective_url_and_port() {
     read EFFECTIVE_URL PORT <<<$(curl \
         -I \
         -s \
