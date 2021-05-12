@@ -11,7 +11,7 @@ function time_pretransfer_x_with_cache() {
 
     ensure_cache_file_exists $TIME_PRETRANSFER_CACHE
 
-    MATCHING_LINE=$(grep "^$REMOTE_IP $HOST $PORT $URL" <$TIME_PRETRANSFER_CACHE)
+    MATCHING_LINE=$(grep "^$REMOTE_IP $HOST $PORT $URL " <$TIME_PRETRANSFER_CACHE)
     if [[ -n "$MATCHING_LINE" ]]; then
         read R H P U TIME_PRETRANSFER <<<$MATCHING_LINE
     else

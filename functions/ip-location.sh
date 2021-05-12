@@ -8,7 +8,7 @@ function ip_location_with_cache() {
 
     ensure_cache_file_exists $IP_LOCATION_CACHE
 
-    MATCHING_LINE=$(grep "^$REMOTE_IP" <$IP_LOCATION_CACHE)
+    MATCHING_LINE=$(grep "^$REMOTE_IP " <$IP_LOCATION_CACHE)
     if [[ -n "$MATCHING_LINE" ]]; then
         read R IP_LOCATION <<<$MATCHING_LINE
     else

@@ -9,7 +9,7 @@ function resolve_host_with_cache() {
 
     ensure_cache_file_exists $RESOLVE_HOST_CACHE
 
-    MATCHING_LINE=$(grep "^$TARGET_DOMAIN $RESOLVER" <$RESOLVE_HOST_CACHE)
+    MATCHING_LINE=$(grep "^$TARGET_DOMAIN $RESOLVER " <$RESOLVE_HOST_CACHE)
     if [[ -n "$MATCHING_LINE" ]]; then
         read D R REMOTE_IP <<<$MATCHING_LINE
     else

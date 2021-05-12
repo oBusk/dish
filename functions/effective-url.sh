@@ -8,7 +8,7 @@ function effective_url_and_port_with_cache {
 
     ensure_cache_file_exists $EFFECTIVE_URL_CACHE
 
-    MATCHING_LINE=$(grep "^$URL" <$EFFECTIVE_URL_CACHE)
+    MATCHING_LINE=$(grep "^$URL " <$EFFECTIVE_URL_CACHE)
     if [[ -n "$MATCHING_LINE" ]]; then
         read U EFFECTIVE_HOST EFFECTIVE_URL PORT <<<$MATCHING_LINE
     else

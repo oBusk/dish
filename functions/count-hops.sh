@@ -8,7 +8,7 @@ function count_hops_with_cache() {
 
     ensure_cache_file_exists $COUNT_HOPS_CACHE
 
-    MATCHING_LINE=$(grep "^$REMOTE_IP" <$COUNT_HOPS_CACHE)
+    MATCHING_LINE=$(grep "^$REMOTE_IP " <$COUNT_HOPS_CACHE)
     if [[ -n "$MATCHING_LINE" ]]; then
         read R NUMBER_OF_HOPS <<<$MATCHING_LINE
     else
