@@ -13,4 +13,5 @@ while read -r RESOLVER_IP R || [ -n "$RESOLVER_IP" ]; do
 	append_line "$(source cdn-test.sh $RESOLVER_IP)"
 done <<<"$INPUT"
 
-printf "Sep=; $(sort -t ";" -k5 -n <<<$RESULT)"
+printf "Sep=; $(sort -t ";" -k5 -n <<<$RESULT)
+"
