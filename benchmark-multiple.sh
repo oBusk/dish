@@ -14,6 +14,6 @@ while read -r RESOLVER_IP R || [ -n "$RESOLVER_IP" ]; do
 done <<<"$INPUT"
 
 printf "Sep=;
-DNS Ip; whoami 'ns'; whoami 'ecs'; whoami 'ip'; Akamai Edge; Akamai Edge Location; Akamai Edge Distance; Akamai Edge Pretransfer
-$(sort -t ";" -k8 -n <<<$RESULT)
+DNS Ip; whoami 'ns'; ns location; ns distance; whoami 'ecs'; whoami 'ip'; Akamai Edge; Akamai Edge Location; Akamai Edge Distance; Akamai Edge Pretransfer
+$(sort -t ";" -k10 -n <<<$RESULT)
 "
