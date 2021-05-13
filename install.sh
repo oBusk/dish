@@ -1,4 +1,4 @@
 #!/bin/bash
 
 sudo apt-get update &&
-    sudo apt-get install jq
+    sudo apt-get install jq whois
