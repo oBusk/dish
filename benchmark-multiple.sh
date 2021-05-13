@@ -9,14 +9,8 @@ function append_line() {
 $1"
 }
 
-function continue_line() {
-	RESULT="$RESULT $1"
-}
-
 while read -r RESOLVER_IP R || [ -n "$RESOLVER_IP" ]; do
-	append_line "$RESOLVER_IP; "
-	continue_line "$(source dns-location-test.sh $RESOLVER_IP)"
-	continue_line "$(source cdn-test.sh $RESOLVER_IP)"
+	append_line "$(source benchmark.sh $RESOLVER_IP)"
 done <<<"$INPUT"
 
 printf "Sep=; $(sort -t ";" -k5 -n <<<$RESULT)

@@ -4,6 +4,6 @@
 
 RESOLVER_IP=$1
 
-source url-test.sh \
+source benchmarks/url.sh \
     $RESOLVER_IP \
     https://www.akamai.com/
