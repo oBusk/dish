@@ -20,5 +20,5 @@ else
     LOCATION=$(ip_location_with_cache $REMOTE_IP)
     TIME_PRETRANSFER=$(time_pretransfer_x_with_cache $REMOTE_IP $EFFECTIVE_HOST $PORT $EFFECTIVE_URL)
 
-    echo "$RESOLVER_IP; $REMOTE_IP; $LOCATION; $DISTANCE; $(s_to_ms $TIME_PRETRANSFER)"
+    echo "$REMOTE_IP; $LOCATION; $DISTANCE; $(s_to_ms $TIME_PRETRANSFER)"
 fi
