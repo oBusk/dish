@@ -16,7 +16,7 @@ REMOTE_IP=$(resolve_host_with_cache $EFFECTIVE_HOST $RESOLVER_IP)
 if [[ "$REMOTE_IP" == "N/A" ]]; then
     echo $RESOLVER_IP
 else
-    DISTANCE=$(count_hops_with_cache $REMOTE_IP)
+    DISTANCE=$(count_hops_with_cache $REMOTE_IP true)
     LOCATION=$(ip_location_with_cache $REMOTE_IP)
     TIME_PRETRANSFER=$(time_pretransfer_x_with_cache $REMOTE_IP $EFFECTIVE_HOST $PORT $EFFECTIVE_URL)
 
