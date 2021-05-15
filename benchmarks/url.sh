@@ -14,7 +14,7 @@ read EFFECTIVE_HOST EFFECTIVE_URL PORT <<<$(effective_url_and_port_with_cache $U
 REMOTE_IP=$(resolve_host_with_cache $EFFECTIVE_HOST $RESOLVER_IP)
 
 if [[ "$REMOTE_IP" == "N/A" ]]; then
-    echo $RESOLVER_IP
+    echo "N/A; ; ; "
 else
     DISTANCE=$(count_hops_with_cache $REMOTE_IP true)
     LOCATION=$(ip_location_with_cache $REMOTE_IP)
