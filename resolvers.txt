@@ -1,31 +1,29 @@
 1.0.0.1             one.one.one.one
-1.0.0.2             ��� no official Internet DNS name ���
-1.1.1.1             one.one.one.one
-1.1.1.1         cloudflare
-1.1.1.2             ��� no official Internet DNS name ���
-116.202.176.26  LibreDNS
+1.0.0.2
+1.1.1.1             cloudflare
+1.1.1.2
+116.202.176.26      LibreDNS
 129.250.35.250      x.ns.gin.ntt.net
 129.250.35.251      y.ns.gin.ntt.net
-130.244.126.100 LO
+130.244.126.100     LO
 141.1.1.1           cns1.cw.net
 141.1.27.249        euro-cns1.cw.net
-146.255.56.98   Foundation for Applied Privacy
+146.255.56.98       Foundation for Applied Privacy
 149.112.112.112     rpz-public-resolver1.rrdns.pch.net
-151.252.139.24  Net at Once
+151.252.139.24      Net at Once
 154.32.105.18       res1.dns.uk.psi.net
-155.4.12.212    Bannhof (?)
-156.154.70.1        rdns1.ultradns.net
-156.154.70.1    DNS Advantage (Neustar)
-156.154.70.22       ��� no official Internet DNS name ���
+155.4.12.212        Bannhof (?)
+156.154.70.1        DNS Advantage (Neustar)
+156.154.70.22
 156.154.71.1        rdns2.ultradns.net
-156.154.71.22       ��� no official Internet DNS name ���
+156.154.71.22
 158.43.128.1        cache0002.ns.eu.uu.net
 158.43.240.3        cache0005a.ns.eu.uu.net
 158.43.240.4        cache0004.ns.eu.uu.net
 193.101.111.10      cache0702.ns.eu.uu.net
 193.101.111.20      cache0703.ns.eu.uu.net
-193.17.47.1     CZ.NIC
-193.183.18.21   Atea
+193.17.47.1         CZ.NIC
+193.183.18.21       Atea
 193.67.79.39        cache0200.ns.eu.uu.net
 193.78.240.12       cache0204.ns.eu.uu.net
 193.79.242.39       cache0205.ns.eu.uu.net
@@ -37,14 +35,13 @@
 194.67.2.114        ns3.online.ru
 194.98.65.65        cache0300.ns.eu.uu.net
 195.129.12.83       cache0206.ns.eu.uu.net
-195.178.160.1   Bannhof
+195.178.160.1       Bannhof
 195.182.110.132     dns-fra.de.ignite.net
 195.27.1.1          cns2.cw.net
-195.67.69.66    Mkdata
+195.67.69.66        Mkdata
 195.99.66.220       nsr2.bticglobal.net
-198.153.192.1       ��� no official Internet DNS name ���
-198.153.194.1       ��� no official Internet DNS name ���
-198.251.90.91   NixNet
+198.153.194.1
+198.251.90.91       NixNet
 206.165.6.11        dns1.phx.gblx.net
 206.165.6.12        dns2.phx.gblx.net
 208.67.220.123      resolver2-fs.opendns.com
@@ -53,51 +50,36 @@
 208.67.222.123      resolver1-fs.opendns.com
 208.67.222.220      resolver3.opendns.com
 208.67.222.222      resolver1.opendns.com
-208.67.222.222      resolver1.opendns.com
-208.67.222.222  OpenDNS-2
 209.130.139.2       dns2.roc.gblx.net
 209.244.0.4         resolver2.level3.net
-213.115.226.2       ns1.gns.se
-213.115.226.2   GNS.se
-216.146.35.35       rdns.dynect.net
-216.146.35.35   DynGuide
-217.115.40.123  bredband2
-23.253.163.53   Alternate DNS
-4.2.2.1             a.resolvers.level3.net
-4.2.2.1             a.resolvers.level3.net
-4.2.2.1         Level3 DNS
-4.2.2.2             b.resolvers.Level3.net
+213.115.226.2       GNS.se
+216.146.35.35       DynGuide
+217.115.40.123      bredband2
+23.253.163.53       Alternate DNS
+4.2.2.1             Level3 DNS
 4.2.2.2             b.resolvers.Level3.net
 4.2.2.4             d.resolvers.level3.net
 4.2.2.6             f.resolvers.level3.net
-45.90.28.55     NextDNS
-46.246.29.69    Glesys
+45.90.28.55         NextDNS
+46.246.29.69        Glesys
 64.212.106.84       dns1.jfk.gblx.net
-64.6.64.6       Ultra DNS / Neustar
+64.6.64.6           Ultra DNS / Neustar
 66.28.0.45          res1.dns.cogentco.com
 67.17.215.132       dns1.snv.gblx.net
-74.82.42.42         ordns.he.net
-74.82.42.42     Hurricane
+74.82.42.42         Hurricane
 8.20.247.20         ns2.recursive.dnsbycomodo.com
-8.26.56.26          ns1.recursive.dnsbycomodo.com
-8.26.56.26      Comodo Secure DNS
-8.8.4.4             dns.google
+8.26.56.26          Comodo Secure DNS
 8.8.4.4             dns.google
 8.8.8.8             dns.google
-8.8.8.8             dns.google
-8.8.8.8         Google
-81.26.228.3         ns10.bredband.com
-81.26.228.3     Telenor
+81.26.228.3         Telenor
 83.137.225.121      res2.sotaconnect.net
-84.200.69.80        ��� no official Internet DNS name ���
-84.200.69.80    DNS.WATCH
-84.200.70.40        ��� no official Internet DNS name ���
+84.200.69.80        DNS.WATCH
+84.200.70.40
 85.119.136.158      85-119-136-158.telio.no
-87.96.144.179   a3 fiber
-9.9.9.11        Quad9 (ECS)
-9.9.9.9             dns9.quad9.net
-9.9.9.9         Quad9
-91.239.100.100  UncensoredDNS
-94.140.14.14    AdGuard
-95.216.212.177  BlahDNS
-95.216.24.230   Snoopyta
+87.96.144.179       a3 fiber
+9.9.9.11            Quad9 (ECS)
+9.9.9.9             Quad9
+91.239.100.100      UncensoredDNS
+94.140.14.14        AdGuard
+95.216.212.177      BlahDNS
+95.216.24.230       Snoopyta
