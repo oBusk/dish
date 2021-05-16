@@ -13,4 +13,10 @@ echo -n "; $NETFLIX_RESULT"
 YOUTUBE_RESULT="$(source benchmarks/url.sh $RESOLVER_IP https://youtube.com)"
 YOUTUBE_TIMING=$(echo $YOUTUBE_RESULT | cut -d ';' -f 5-)
 echo -n "; $YOUTUBE_RESULT"
-echo "; " $(echo "scale=1;($AKAMAI_TIMING + $NETFLIX_TIMING + $YOUTUBE_TIMING) / 3" | bc -l)
+AVERAGE_TIMING=$(echo "scale=1;(${AKAMAI_TIMING:-0} + ${NETFLIX_TIMING:-0} + ${YOUTUBE_TIMING:-0}) / 3" | bc -l)
+
+if [[ "$AVERAGE_TIMING" == "0" ]]; then
+    AVERAGE_TIMING=""
+fi
+
+echo "; ${AVERAGE_TIMING:}"
