@@ -21,5 +21,6 @@ function ip_info_with_cache() {
 }
 
 function ip_info() {
-	curl -s ipinfo.io/$1 | jq -j '.hostname, ";", .org, ";", .city, ", ", .country'
+	# curl -s ipinfo.io/$1 | jq -j '.hostname, ";", .org, ";", .city, ", ", .country'
+	curl -s "http://ip-api.com/json/$1?fields=countryCode,city,org,reverse" | jq -j '.reverse, ";", .org, ";", .city, ", ", .countryCode'
 }
