@@ -10,16 +10,16 @@ function ip_location_with_cache() {
 
     MATCHING_LINE=$(grep "^$REMOTE_IP " <$IP_LOCATION_CACHE)
     if [[ -n "$MATCHING_LINE" ]]; then
-        read R IP_LOCATION <<<$MATCHING_LINE
+        read -d ";" R HOSTNAME ORGANIZATION LOCATION <<<$MATCHING_LINE
     else
-        IP_LOCATION=$(ip_location $REMOTE_IP)
+        read -d ";" HOSTNAME ORGANIZATION LOCATION <<<$(ip_location $REMOTE_IP)
 
-        echo -e "$REMOTE_IP $IP_LOCATION" >>$IP_LOCATION_CACHE
+        echo -e "$REMOTE_IP;$HOSTNAME;$ORGANIZATION;$LOCATION" >>$IP_LOCATION_CACHE
     fi
 
-    echo $IP_LOCATION
+    echo "$HOSTNAME; $ORGANIZATION; $LOCATION"
 }
 
 function ip_location() {
-    curl -s ipinfo.io/$1 | jq -j '.city, ", ", .country'
+    curl -s ipinfo.io/$1 | jq -j '.hostname // empty, ";", .org, ";", .city, ", ", .country'
 }

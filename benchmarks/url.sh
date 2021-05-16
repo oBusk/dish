@@ -17,7 +17,7 @@ if [[ "$REMOTE_IP" == "N/A" ]]; then
     echo "N/A; ; ; "
 else
     DISTANCE=$(count_hops_with_cache $REMOTE_IP true)
-    LOCATION=$(ip_location_with_cache $REMOTE_IP)
+    read -d ";" HOSTNAME ORGANIZATION LOCATION <<<$(ip_location_with_cache $REMOTE_IP)
     TIME_PRETRANSFER=$(time_pretransfer_x_with_cache $REMOTE_IP $EFFECTIVE_HOST $PORT $EFFECTIVE_URL)
 
     echo "$REMOTE_IP; $LOCATION; $DISTANCE; $(s_to_ms $TIME_PRETRANSFER)"
