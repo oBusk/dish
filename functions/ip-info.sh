@@ -17,7 +17,7 @@ function ip_info_with_cache() {
 		echo -e "$REMOTE_IP;$HOSTNAME;$ORGANIZATION;$LOCATION" >>$IP_INFO_CACHE
 	fi
 
-	echo -e "$HOSTNAME; $ORGANIZATION; $LOCATION"
+	echo -e "$HOSTNAME;$ORGANIZATION;$LOCATION"
 }
 
 function ip_info() {
