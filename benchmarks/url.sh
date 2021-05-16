@@ -13,12 +13,10 @@ read EFFECTIVE_HOST EFFECTIVE_URL PORT <<<$(effective_url_and_port_with_cache $U
 
 REMOTE_IP=$(resolve_host_with_cache $EFFECTIVE_HOST $RESOLVER_IP)
 
-if [[ "$REMOTE_IP" == "N/A" ]]; then
-    echo "N/A; ; ; "
-else
+if [[ "$REMOTE_IP" != "N/A" ]]; then
     DISTANCE=$(count_hops_with_cache $REMOTE_IP true)
-    IFS=';' read -r HOSTNAME ORGANIZATION LOCATION <<<$(ip_info_with_cache $REMOTE_IP)
-    TIME_PRETRANSFER=$(time_pretransfer_x_with_cache $REMOTE_IP $EFFECTIVE_HOST $PORT $EFFECTIVE_URL)
-
-    echo "$REMOTE_IP; $HOSTNAME; $LOCATION; $DISTANCE; $(s_to_ms $TIME_PRETRANSFER)"
+    IFS=';' read -r REMOTE_HOSTNAME ORGANIZATION LOCATION <<<$(ip_info_with_cache $REMOTE_IP)
+    TIME_PRETRANSFER=$(s_to_ms $(time_pretransfer_x_with_cache $REMOTE_IP $EFFECTIVE_HOST $PORT $EFFECTIVE_URL))
 fi
+
+echo "$REMOTE_IP; $REMOTE_HOSTNAME; $LOCATION; $DISTANCE; $TIME_PRETRANSFER"
