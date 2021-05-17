@@ -11,7 +11,7 @@ function dnsping_with_cache() {
 
     MATCHING_LINE=$(grep "^$REMOTE_IP $DOMAIN " <$DNSPING_CACHE)
     if [[ -n "$MATCHING_LINE" ]]; then
-        read REMOTE_IP DNSPING <<<$MATCHING_LINE
+        read REMOTE_IP DOMAIN DNSPING <<<$MATCHING_LINE
     else
         DNSPING=$(dnsping $REMOTE_IP)
 
