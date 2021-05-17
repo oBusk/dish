@@ -18,7 +18,7 @@ function dnsping_with_cache() {
         echo -e "$REMOTE_IP $DOMAIN $DNSPING" >>$DNSPING_CACHE
     fi
 
-    echo $DNSPING
+    [[ "$DNSPING" == "0.000" ]] && echo "9999" || echo "$DNSPING"
 }
 
 function dnsping() {
