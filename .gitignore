@@ -1,5 +1,5 @@
 .cache/
 
-output.csv
+/output*
 
-private-resolvers.txt
+/private-resolvers.txt
