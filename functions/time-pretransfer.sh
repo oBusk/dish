@@ -44,11 +44,19 @@ function time_pretransfer() {
     local PORT=$3
     local URL=$4
 
-    curl \
-        -w '%{time_pretransfer}' \
-        -I \
-        -s \
-        -o /dev/null \
-        --resolve "$EFFECTIVE_HOST:$PORT:$REMOTE_IP" \
-        $EFFECTIVE_URL
+    local TIME_PRETRANSFER=$(
+        curl \
+            -w '%{time_pretransfer}' \
+            -I \
+            -s \
+            -o /dev/null \
+            --resolve "$EFFECTIVE_HOST:$PORT:$REMOTE_IP" \
+            $EFFECTIVE_URL
+    )
+
+    if [[ "$TIME_PRETRANSFER" == "0.000000" ]]; then
+        echo "99"
+    else
+        echo "$TIME_PRETRANSFER"
+    fi
 }
