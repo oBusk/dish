@@ -68,7 +68,3 @@ WIP
 #### [whoami-benchmark.sh](#)
 
 WIP
-
-## License
-
-ISC © Oscar Busk
