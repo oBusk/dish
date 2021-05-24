@@ -54,8 +54,8 @@ function time_pretransfer() {
             $EFFECTIVE_URL
     )
 
-    if [[ -n "$TIME_PRETRANSFER" ]]; then
-        echo "999"
+    if [[ "$TIME_PRETRANSFER" == "0.000000" ]]; then
+        echo "99"
     else
         echo "$TIME_PRETRANSFER"
     fi
