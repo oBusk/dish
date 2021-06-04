@@ -23,7 +23,11 @@ function who_am_i_with_cache() {
 function who_am_i() {
     RESOLVER_IP=$1
 
-    DIG_RESPONSE=$(dig +short TXT whoami.ipv4.akahelp.net @$RESOLVER_IP 2>/dev/null || echo '')
+    if [[ -n "$RESOLVER_IP" ]]; then
+        DIG_RESPONSE=$(dig +short TXT whoami.ipv4.akahelp.net @$RESOLVER_IP 2>/dev/null || echo '')
+    else
+        DIG_RESPONSE=$(dig +short TXT whoami.ipv4.akahelp.net 2>/dev/null || echo '')
+    fi
 
     NS=$(awk -F '"' '$2 == "ns"{printf $4}' <<<$DIG_RESPONSE)
     ECS=$(awk -F '"' '$2 == "ecs"{printf $4}' <<<$DIG_RESPONSE)
