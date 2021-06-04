@@ -3,7 +3,7 @@
 CACHE_DIR="./.cache"
 
 function ensure_folder_exists() {
-    [[ -d "$1" ]] || mkdir "$1"
+    mkdir -p "$1"
 }
 
 function ensure_file_exists() {
